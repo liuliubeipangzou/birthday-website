@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Girl</title>
+    <meta
+      name="description"
+      content="一封送给即将生日的她的浪漫网页，纪念从 2018 年 9 月 16 日开始的心动。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;700;800&family=Noto+Serif+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="noise"></div>
+      <div class="orb orb-left"></div>
+      <div class="orb orb-right"></div>
+      <canvas id="stars" aria-hidden="true"></canvas>
+
+      <header class="hero section">
+        <nav class="topbar">
+          <span class="brand">09.16</span>
+          <span class="tag">Since we became us</span>
+        </nav>
+
+        <div class="hero-copy reveal">
+          <p class="eyebrow">To the birthday girl</p>
+          <h1>
+            你的生日快到了，
+            <span>我想把我们的故事做成一场宇宙级的烟火。</span>
+          </h1>
+          <p class="lead">
+            从 <strong>2018 年 9 月 16 日</strong> 开始，普通的日子有了光，
+            漫长的未来也有了方向。这个网页，是我提前写给你的生日礼物。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#counter">看看我们走了多久</a>
+            <a class="button ghost" href="#letter">拆开这封信</a>
+          </div>
+        </div>
+
+        <div class="hero-card reveal">
+          <p class="mini-label">一起走过</p>
+          <div class="counter-grid">
+            <div>
+              <strong id="daysTogether">0</strong>
+              <span>天</span>
+            </div>
+            <div>
+              <strong id="hoursTogether">0</strong>
+              <span>小时</span>
+            </div>
+            <div>
+              <strong id="minutesTogether">0</strong>
+              <span>分钟</span>
+            </div>
+            <div>
+              <strong id="secondsTogether">0</strong>
+              <span>秒</span>
+            </div>
+          </div>
+          <p class="card-note">
+            每一秒都在证明，那天的选择是我这些年最幸运的决定。
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <section class="section story" id="counter">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Our little galaxy</p>
+            <h2>不是普通纪念日，是我们把平凡活成了闪耀。</h2>
+          </div>
+
+          <div class="story-grid">
+            <article class="glass-card reveal">
+              <p class="card-index">01</p>
+              <h3>开始的那一天</h3>
+              <p>
+                2018 年 9 月 16 日，世界没有变，但我的世界开始有了特别的名字。
+              </p>
+            </article>
+            <article class="glass-card reveal">
+              <p class="card-index">02</p>
+              <h3>一起成长的这些年</h3>
+              <p>
+                我们把聊天记录、见面路程、晚安和想念，慢慢叠成了只有我们懂的宇宙。
+              </p>
+            </article>
+            <article class="glass-card reveal">
+              <p class="card-index">03</p>
+              <h3>你的生日要来了</h3>
+              <p>
+                所以我想让这一页替我先说一句：新的一岁，也请继续被爱、被偏爱、被坚定选择。
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section timeline">
+          <div class="timeline-panel reveal">
+            <p class="eyebrow">Time line</p>
+            <h2>我们正在把“以后”过成现在。</h2>
+            <div class="timeline-list">
+              <div class="timeline-item">
+                <span class="dot"></span>
+                <div>
+                  <p class="timeline-date">2018.09.16</p>
+                  <p>故事开始，心动落地。</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="dot"></span>
+                <div>
+                  <p class="timeline-date">之后的每一天</p>
+                  <p>是分享、依赖、争吵、和好，也是越来越懂彼此。</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <span class="dot"></span>
+                <div>
+                  <p class="timeline-date">你的下一岁</p>
+                  <p>愿望不止实现，连同你自己也被这个世界温柔对待。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="quote-card reveal">
+            <p class="quote">
+              “如果爱有形状，那大概就是你朝我走来的样子。”
+            </p>
+            <p class="quote-sign">给我最喜欢的女孩</p>
+          </div>
+        </section>
+
+        <section class="section letter" id="letter">
+          <div class="letter-card reveal">
+            <p class="eyebrow">Birthday letter</p>
+            <h2>亲爱的，生日快乐。</h2>
+            <p>
+              谢谢你把温柔、耐心、笑意和陪伴放进我的生活里，让我在很多普通时刻都觉得自己像中了大奖。
+            </p>
+            <p>
+              我希望你接下来的一岁，不只是顺顺利利，也要闪闪发光。想做的事能大胆去做，想去的地方有人陪你去，想得到的快乐会按时抵达。
+            </p>
+            <p>
+              我也会继续认真爱你，认真陪你，认真把那些你值得拥有的浪漫，一点一点补给你。
+            </p>
+            <p class="signature">永远站在你这边的人</p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
