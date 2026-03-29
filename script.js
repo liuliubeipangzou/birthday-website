@@ -2,8 +2,8 @@ const siteConfig = {
   startDate: new Date("2018-09-16T00:00:00+08:00"),
 };
 
-const numberFormatter = new Intl.NumberFormat("zh-CN");
 const counterIds = ["daysTogether", "hoursTogether", "minutesTogether", "secondsTogether"];
+const numberFormatter = new Intl.NumberFormat("zh-CN");
 
 function formatNumber(value) {
   return numberFormatter.format(value);
@@ -17,7 +17,6 @@ function updateTogetherCounter() {
   const totalMinutes = Math.floor(totalSeconds / 60);
   const totalHours = Math.floor(totalMinutes / 60);
   const totalDays = Math.floor(totalHours / 24);
-
   const values = [totalDays, totalHours, totalMinutes, totalSeconds];
 
   for (const [index, id] of counterIds.entries()) {
@@ -47,13 +46,9 @@ function setupRevealAnimations() {
 }
 
 function setupTiltCards() {
-  const cards = document.querySelectorAll(
-    ".hero-card, .status-card, .glass-card, .memory, .timeline-panel, .quote-card, .promise-card, .letter-card"
-  );
+  const cards = document.querySelectorAll(".tilt-card");
 
   cards.forEach((card) => {
-    card.setAttribute("data-tilt", "");
-
     card.addEventListener("mousemove", (event) => {
       if (window.innerWidth < 900) {
         return;
@@ -64,8 +59,7 @@ function setupTiltCards() {
       const centerY = rect.top + rect.height / 2;
       const rotateX = ((event.clientY - centerY) / rect.height) * -5;
       const rotateY = ((event.clientX - centerX) / rect.width) * 5;
-
-      card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+      card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
     });
 
     card.addEventListener("mouseleave", () => {
@@ -74,11 +68,42 @@ function setupTiltCards() {
   });
 }
 
+function setupCursorGlow() {
+  const cursorGlow = document.getElementById("cursorGlow");
+  if (!cursorGlow || window.matchMedia("(pointer: coarse)").matches) {
+    return;
+  }
+
+  window.addEventListener("pointermove", (event) => {
+    cursorGlow.style.transform = `translate(${event.clientX - 208}px, ${event.clientY - 208}px)`;
+  });
+}
+
+function setupGiftInteraction() {
+  const giftButton = document.getElementById("giftButton");
+  const giftBox = document.getElementById("giftBox");
+  const secretMessage = document.getElementById("secretMessage");
+
+  if (!giftButton || !giftBox || !secretMessage) {
+    return;
+  }
+
+  giftButton.addEventListener("click", () => {
+    giftBox.classList.add("open");
+    secretMessage.classList.add("visible");
+    giftButton.textContent = "礼物已打开";
+    giftButton.disabled = true;
+  });
+}
+
 function createStarfield() {
   const canvas = document.getElementById("stars");
   const context = canvas.getContext("2d");
   const stars = [];
-  const maxStars = Math.min(220, Math.max(120, Math.floor(window.innerWidth / 8)));
+
+  function getStarCount() {
+    return Math.min(220, Math.max(120, Math.floor(window.innerWidth / 8)));
+  }
 
   function resize() {
     const scale = window.devicePixelRatio || 1;
@@ -89,13 +114,13 @@ function createStarfield() {
     context.setTransform(scale, 0, 0, scale, 0, 0);
 
     stars.length = 0;
-    for (let i = 0; i < maxStars; i += 1) {
+    for (let i = 0; i < getStarCount(); i += 1) {
       stars.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        radius: Math.random() * 1.7 + 0.2,
+        radius: Math.random() * 1.6 + 0.2,
         alpha: Math.random() * 0.7 + 0.12,
-        speed: Math.random() * 0.24 + 0.04,
+        speed: Math.random() * 0.25 + 0.04,
       });
     }
   }
@@ -112,7 +137,7 @@ function createStarfield() {
 
       context.beginPath();
       context.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-      context.fillStyle = `rgba(255, 246, 222, ${star.alpha})`;
+      context.fillStyle = `rgba(255, 245, 219, ${star.alpha})`;
       context.fill();
     }
 
@@ -128,4 +153,6 @@ updateTogetherCounter();
 setInterval(updateTogetherCounter, 1000);
 setupRevealAnimations();
 setupTiltCards();
+setupCursorGlow();
+setupGiftInteraction();
 createStarfield();

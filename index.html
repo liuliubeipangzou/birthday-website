@@ -18,218 +18,254 @@
   </head>
   <body>
     <div class="page-shell">
+      <div class="cursor-glow" id="cursorGlow"></div>
       <div class="noise"></div>
-      <div class="orb orb-left"></div>
-      <div class="orb orb-right"></div>
-      <div class="glow glow-top"></div>
-      <div class="glow glow-bottom"></div>
+      <div class="aurora aurora-a"></div>
+      <div class="aurora aurora-b"></div>
+      <div class="aurora aurora-c"></div>
       <canvas id="stars" aria-hidden="true"></canvas>
 
       <header class="hero section">
         <nav class="topbar reveal">
-          <div>
+          <div class="brand-group">
             <span class="brand">09.16</span>
-            <span class="brand-sub">Since 2018</span>
+            <span class="brand-sub">For the birthday girl</span>
           </div>
-          <span class="tag">A birthday site written for the girl I still choose every day</span>
+          <div class="topbar-note">
+            <span class="top-pill">Since 2018</span>
+            <span class="top-copy">A cinematic love letter built for one person only.</span>
+          </div>
         </nav>
 
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Birthday project for my favorite person</p>
-          <h1>
-            把喜欢写成网页，
-            <span>把我们过成一场一直在发光的宇宙。</span>
-          </h1>
-          <p class="lead">
-            从 <strong>2018 年 9 月 16 日</strong> 开始，你让平凡的日子有了值得期待的意义。
-            这一次，我想把“生日快乐”说得更认真一点，也更漂亮一点。
-          </p>
+        <div class="hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Birthday website project</p>
+            <h1>
+              不是做一个网页，
+              <span>是想把喜欢做得像一场首映礼。</span>
+            </h1>
+            <p class="lead">
+              从 <strong>2018 年 9 月 16 日</strong> 开始，你让我的世界从普通模式切换成了发光模式。
+              你的生日快到了，所以我想把那句“生日快乐”做得更盛大、更浪漫、也更像你值得拥有的样子。
+            </p>
 
-          <div class="hero-actions">
-            <a class="button primary" href="#counter">看看我们的时间</a>
-            <a class="button ghost" href="#letter">拆开生日信</a>
+            <div class="hero-actions">
+              <a class="button primary" href="#counter">查看我们的时间线</a>
+              <a class="button ghost" href="#giftSection">打开生日礼物</a>
+            </div>
+
+            <div class="hero-ticker">
+              <span>still falling for you</span>
+              <span>still choosing you</span>
+              <span>still writing our future</span>
+            </div>
           </div>
 
-          <div class="hero-ribbon">
-            <span>浪漫不是偶尔出现</span>
-            <span>而是想把每个重要时刻都认真留住</span>
+          <div class="hero-stage reveal">
+            <div class="planet-shell tilt-card">
+              <div class="planet-ring planet-ring-a"></div>
+              <div class="planet-ring planet-ring-b"></div>
+              <div class="planet-core"></div>
+              <div class="planet-spark spark-a"></div>
+              <div class="planet-spark spark-b"></div>
+              <div class="planet-spark spark-c"></div>
+            </div>
+
+            <div class="floating-card card-main tilt-card">
+              <p class="mini-label">Together mode</p>
+              <div class="counter-grid">
+                <div>
+                  <strong id="daysTogether">0</strong>
+                  <span>天</span>
+                </div>
+                <div>
+                  <strong id="hoursTogether">0</strong>
+                  <span>小时</span>
+                </div>
+                <div>
+                  <strong id="minutesTogether">0</strong>
+                  <span>分钟</span>
+                </div>
+                <div>
+                  <strong id="secondsTogether">0</strong>
+                  <span>秒</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="floating-card card-side tilt-card">
+              <p class="mini-label">Status</p>
+              <div class="status-stack">
+                <div class="status-row">
+                  <span>心动频率</span>
+                  <strong>持续满格</strong>
+                </div>
+                <div class="status-row">
+                  <span>生日惊喜</span>
+                  <strong>加载完成</strong>
+                </div>
+                <div class="status-row">
+                  <span>未来版本</span>
+                  <strong>继续并肩更新</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="floating-card card-quote tilt-card">
+              <p>“你不是我的某一天，你是我想反复拥有的每一天。”</p>
+            </div>
           </div>
         </div>
-
-        <aside class="hero-stack reveal">
-          <div class="hero-card">
-            <p class="mini-label">一起走过</p>
-            <div class="counter-grid">
-              <div>
-                <strong id="daysTogether">0</strong>
-                <span>天</span>
-              </div>
-              <div>
-                <strong id="hoursTogether">0</strong>
-                <span>小时</span>
-              </div>
-              <div>
-                <strong id="minutesTogether">0</strong>
-                <span>分钟</span>
-              </div>
-              <div>
-                <strong id="secondsTogether">0</strong>
-                <span>秒</span>
-              </div>
-            </div>
-            <p class="card-note">
-              每一秒都在提醒我，那天牵起你的手，是这些年里最正确的一件事。
-            </p>
-          </div>
-
-          <div class="status-card">
-            <p class="mini-label">Relationship data</p>
-            <div class="status-row">
-              <span>心动状态</span>
-              <strong>持续升温</strong>
-            </div>
-            <div class="status-row">
-              <span>生日模式</span>
-              <strong>已开启</strong>
-            </div>
-            <div class="status-row">
-              <span>未来计划</span>
-              <strong>继续并肩</strong>
-            </div>
-          </div>
-        </aside>
       </header>
 
+      <section class="marquee-wrap">
+        <div class="marquee-track">
+          <span>Birthday Mode Activated</span>
+          <span>For The Girl I Love</span>
+          <span>Since 2018.09.16</span>
+          <span>Birthday Mode Activated</span>
+          <span>For The Girl I Love</span>
+          <span>Since 2018.09.16</span>
+        </div>
+      </section>
+
       <main>
-        <section class="section metrics" id="counter">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Our little galaxy</p>
-            <h2>不是简单纪念，而是把无数普通日子活成了闪光证据。</h2>
+        <section class="section story-grid" id="counter">
+          <article class="story-panel panel-wide reveal tilt-card">
+            <p class="eyebrow">Opening scene</p>
+            <h2>故事真正厉害的地方，不是开始得多轰烈，而是一直到现在都还在发光。</h2>
+            <p>
+              我喜欢我们的，不只是某个节点的心动，而是这些年里每一次分享、每一次想念、每一次吵完架还是想靠近彼此的本能。
+            </p>
+          </article>
+
+          <article class="story-panel reveal tilt-card">
+            <p class="card-index">01</p>
+            <h3>开始的那天</h3>
+            <p>2018 年 9 月 16 日，世界没变，但我看世界的方式变了。</p>
+          </article>
+
+          <article class="story-panel reveal tilt-card">
+            <p class="card-index">02</p>
+            <h3>一起走的路</h3>
+            <p>日常没有被过得平淡，反而被你一点点变成值得收藏的片段。</p>
+          </article>
+
+          <article class="story-panel reveal tilt-card">
+            <p class="card-index">03</p>
+            <h3>关于下一岁</h3>
+            <p>想让你被祝福、被偏爱、被世界温柔接住，也被我坚定站在身边。</p>
+          </article>
+        </section>
+
+        <section class="section cinematic reveal">
+          <div class="cinematic-copy">
+            <p class="eyebrow">Memory sequence</p>
+            <h2>如果回忆是电影，你一定是每一帧里最亮的那束光。</h2>
           </div>
 
-          <div class="metrics-grid">
-            <article class="glass-card reveal">
-              <p class="card-index">01</p>
-              <h3>故事起点</h3>
-              <p>
-                2018 年 9 月 16 日，不是电影镜头，却是我人生里最值得反复回看的片段。
-              </p>
+          <div class="memory-strip">
+            <article class="memory-card memory-one tilt-card">
+              <span class="memory-tag">First look</span>
+              <h3>从那天起，时间有了意义</h3>
+              <p>在一起不是一个标签，是后来很多很多天的底色。</p>
             </article>
-            <article class="glass-card reveal">
-              <p class="card-index">02</p>
-              <h3>感情温度</h3>
-              <p>
-                我们没有把爱说成口号，而是把它变成每天的分享、耐心、想念和偏爱。
-              </p>
+            <article class="memory-card memory-two tilt-card">
+              <span class="memory-tag">Daily warmth</span>
+              <h3>平常的日子也变得不平常</h3>
+              <p>晚安、散步、聊天、见面，原来最浪漫的是稳定存在。</p>
             </article>
-            <article class="glass-card reveal">
-              <p class="card-index">03</p>
-              <h3>生日愿望</h3>
-              <p>
-                希望你新的一岁，拥有比去年更多的勇气、好运、松弛感和被坚定爱着的底气。
-              </p>
+            <article class="memory-card memory-three tilt-card">
+              <span class="memory-tag">Future cut</span>
+              <h3>我还想和你拍很多续集</h3>
+              <p>不是短暂热烈，是认真规划未来也想把你放在里面。</p>
             </article>
           </div>
         </section>
 
-        <section class="section showcase">
-          <div class="film-card reveal">
-            <div class="film-header">
-              <p class="eyebrow">Memory fragments</p>
-              <h2>如果回忆有胶片感，那它应该是暖的、亮的，而且都和你有关。</h2>
-            </div>
-
-            <div class="film-strip">
-              <article class="memory memory-a">
-                <span class="memory-tag">First chapter</span>
-                <h3>从“在一起”开始</h3>
-                <p>那天以后，日历不再只是日期，而是我们故事的坐标轴。</p>
-              </article>
-              <article class="memory memory-b">
-                <span class="memory-tag">Daily light</span>
-                <h3>把日常过得很珍贵</h3>
-                <p>一句晚安、一次见面、一次散步，都足够让我记很久。</p>
-              </article>
-              <article class="memory memory-c">
-                <span class="memory-tag">Future mode</span>
-                <h3>还想继续写很多页</h3>
-                <p>我想和你一起，把以后的每一年都过成限定版。</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section class="section timeline">
-          <div class="timeline-panel reveal">
-            <p class="eyebrow">Time line</p>
-            <h2>我们不是在等未来，而是在一起把未来慢慢过出来。</h2>
+        <section class="section promise-layout">
+          <div class="promise-wall reveal tilt-card">
+            <p class="eyebrow">Timeline</p>
+            <h2>我们不是在等未来，是在一起把未来慢慢做出来。</h2>
             <div class="timeline-list">
               <div class="timeline-item">
                 <span class="dot"></span>
                 <div>
                   <p class="timeline-date">2018.09.16</p>
-                  <p>故事开始，心动正式拥有名字。</p>
+                  <p>故事开始，心动正式落地。</p>
                 </div>
               </div>
               <div class="timeline-item">
                 <span class="dot"></span>
                 <div>
-                  <p class="timeline-date">这些年</p>
-                  <p>是依赖、陪伴、争吵、和好，也是越来越懂得珍惜彼此。</p>
+                  <p class="timeline-date">之后的很多天</p>
+                  <p>爱被过成了一种习惯，也是一种越来越确定的答案。</p>
                 </div>
               </div>
               <div class="timeline-item">
                 <span class="dot"></span>
                 <div>
-                  <p class="timeline-date">下一岁</p>
-                  <p>愿你所想皆有回应，所爱都有回声，所走的路都通向更亮的地方。</p>
+                  <p class="timeline-date">你的下一岁</p>
+                  <p>愿你有勇气做自己喜欢的事，也有人在你回头时一直都在。</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="quote-card reveal">
-            <p class="quote">
-              “如果喜欢是一种引力，那你就是我所有情绪最终会落向的星球。”
-            </p>
-            <p class="quote-sign">For the girl whose existence made my life brighter</p>
-          </div>
-        </section>
-
-        <section class="section promises">
-          <div class="promise-grid">
-            <article class="promise-card reveal">
-              <p class="eyebrow">What I hope for you</p>
-              <h3>被世界认真偏爱</h3>
-              <p>希望你的快乐不是偶尔，而是频繁；不是运气，而是常态。</p>
+          <div class="promise-stack">
+            <article class="promise-card reveal tilt-card">
+              <p class="eyebrow">Wish for you</p>
+              <h3>被生活偏爱</h3>
+              <p>想让你的快乐不是节日限定，而是越来越频繁出现的常态。</p>
             </article>
-            <article class="promise-card reveal">
-              <p class="eyebrow">What I want to keep doing</p>
+            <article class="promise-card reveal tilt-card">
+              <p class="eyebrow">Wish from me</p>
               <h3>一直站你这边</h3>
-              <p>不止节日，不止生日，我都想把稳定的陪伴给你很久很久。</p>
-            </article>
-            <article class="promise-card reveal">
-              <p class="eyebrow">What makes this page special</p>
-              <h3>它只属于你</h3>
-              <p>这不是模板式浪漫，而是我想为你认真留下一份可被打开的心意。</p>
+              <p>不只是今天，不只是生日，以后很多年我都想认真偏向你。</p>
             </article>
           </div>
         </section>
 
-        <section class="section letter" id="letter">
-          <div class="letter-card reveal">
-            <p class="eyebrow">Birthday letter</p>
-            <h2>亲爱的，生日快乐。</h2>
+        <section class="section gift-section" id="giftSection">
+          <div class="gift-card reveal tilt-card">
+            <div class="gift-copy">
+              <p class="eyebrow">Open the gift</p>
+              <h2>点开这一份礼物，会掉出一整句我认真准备的生日快乐。</h2>
+              <p>
+                这个按钮不会跳到别的页面，它只负责把藏起来的那份偏爱，正式展示给你看。
+              </p>
+              <button class="button primary gift-button" id="giftButton" type="button">
+                打开礼物
+              </button>
+            </div>
+
+            <div class="gift-box" id="giftBox">
+              <div class="gift-lid"></div>
+              <div class="gift-base"></div>
+              <div class="gift-ribbon"></div>
+            </div>
+          </div>
+
+          <div class="secret-message" id="secretMessage" aria-live="polite">
+            <p class="secret-label">Birthday unlocked</p>
+            <h3>亲爱的，生日快乐。</h3>
             <p>
-              谢谢你把笑意、耐心、温柔和安全感带进我的生活里，让我在很多普通的时刻都觉得自己被命运偏爱了一次。
+              谢谢你让我的生活变得有期待、有想念、有想认真经营的未来。你值得所有闪耀，也值得我一直认真去爱。
+            </p>
+          </div>
+        </section>
+
+        <section class="section letter reveal">
+          <div class="letter-card tilt-card">
+            <p class="eyebrow">Final letter</p>
+            <h2>我希望你接下来的一岁，顺利只是基础，开心才是主旋律。</h2>
+            <p>
+              希望你想去的地方都能去，想做的事都敢做，想得到的快乐能比预期更早抵达。希望你一直被爱，也一直有底气做自己。
             </p>
             <p>
-              我希望你接下来的一岁，不只是顺顺利利，也要闪闪发光。想做的事情都能大胆去做，想去的地方都有人陪，想得到的快乐都能比预期更早抵达。
+              我会继续认真爱你，认真陪你，把那些你值得拥有的浪漫，从网页里带到真实生活里。今天是生日快乐，往后会是更多更具体的好日子。
             </p>
-            <p>
-              我也会继续认真爱你，认真陪你，认真把那些你值得拥有的浪漫，一点一点兑现给你。今天是生日祝福，往后会是更多真实发生的好日子。
-            </p>
-            <p class="signature">永远偏向你的人</p>
+            <p class="signature">永远站在你这边的人</p>
           </div>
         </section>
       </main>
