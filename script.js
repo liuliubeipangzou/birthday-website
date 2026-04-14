@@ -102,6 +102,7 @@ function createFireworksEngine() {
   const context = canvas.getContext("2d");
   const rockets = [];
   const particles = [];
+  let celebrationTimers = [];
 
   function resize() {
     const scale = window.devicePixelRatio || 1;
@@ -118,19 +119,19 @@ function createFireworksEngine() {
   }
 
   function explode(x, y, color) {
-    const count = 56 + Math.floor(Math.random() * 22);
+    const count = 92 + Math.floor(Math.random() * 36);
     for (let i = 0; i < count; i += 1) {
       const angle = (Math.PI * 2 * i) / count;
-      const speed = 1.6 + Math.random() * 3.4;
+      const speed = 2.4 + Math.random() * 4.8;
       particles.push({
         x,
         y,
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
-        life: 70 + Math.random() * 18,
+        life: 96 + Math.random() * 34,
         alpha: 1,
         color,
-        size: 1.6 + Math.random() * 2.2,
+        size: 2.2 + Math.random() * 3.8,
       });
     }
   }
@@ -153,15 +154,15 @@ function createFireworksEngine() {
       rocket.y -= rocket.vy;
 
       context.beginPath();
-      context.arc(rocket.x, rocket.y, 2.4, 0, Math.PI * 2);
+      context.arc(rocket.x, rocket.y, 3.2, 0, Math.PI * 2);
       context.fillStyle = rocket.color;
       context.fill();
 
       context.beginPath();
       context.moveTo(rocket.x, rocket.y);
-      context.lineTo(rocket.x, rocket.y + 18);
+      context.lineTo(rocket.x, rocket.y + 28);
       context.strokeStyle = `${rocket.color}88`;
-      context.lineWidth = 2;
+      context.lineWidth = 2.6;
       context.stroke();
 
       if (rocket.y <= rocket.targetY) {
@@ -174,11 +175,11 @@ function createFireworksEngine() {
       const particle = particles[i];
       particle.x += particle.vx;
       particle.y += particle.vy;
-      particle.vy += 0.035;
-      particle.vx *= 0.992;
-      particle.vy *= 0.992;
+      particle.vy += 0.028;
+      particle.vx *= 0.994;
+      particle.vy *= 0.994;
       particle.life -= 1;
-      particle.alpha = Math.max(0, particle.life / 88);
+      particle.alpha = Math.max(0, particle.life / 128);
 
       context.beginPath();
       context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
@@ -201,16 +202,32 @@ function createFireworksEngine() {
 
   return {
     celebrate() {
+      celebrationTimers.forEach((timer) => window.clearTimeout(timer));
+      celebrationTimers = [];
+
       const bursts = [
-        { x: window.innerWidth * 0.22, y: window.innerHeight * 0.26, delay: 0 },
-        { x: window.innerWidth * 0.74, y: window.innerHeight * 0.2, delay: 220 },
-        { x: window.innerWidth * 0.48, y: window.innerHeight * 0.3, delay: 420 },
-        { x: window.innerWidth * 0.3, y: window.innerHeight * 0.18, delay: 720 },
-        { x: window.innerWidth * 0.68, y: window.innerHeight * 0.34, delay: 900 },
+        { x: window.innerWidth * 0.16, y: window.innerHeight * 0.24, delay: 0 },
+        { x: window.innerWidth * 0.76, y: window.innerHeight * 0.18, delay: 240 },
+        { x: window.innerWidth * 0.48, y: window.innerHeight * 0.28, delay: 480 },
+        { x: window.innerWidth * 0.26, y: window.innerHeight * 0.16, delay: 860 },
+        { x: window.innerWidth * 0.68, y: window.innerHeight * 0.32, delay: 1180 },
+        { x: window.innerWidth * 0.38, y: window.innerHeight * 0.22, delay: 1540 },
+        { x: window.innerWidth * 0.58, y: window.innerHeight * 0.2, delay: 1880 },
+        { x: window.innerWidth * 0.5, y: window.innerHeight * 0.14, delay: 2320 },
       ];
 
       for (const burst of bursts) {
-        window.setTimeout(() => launch(burst.x, burst.y, randomColor()), burst.delay);
+        const timer = window.setTimeout(() => {
+          launch(burst.x, burst.y, randomColor());
+          if (Math.random() > 0.35) {
+            launch(
+              burst.x + (Math.random() * 120 - 60),
+              burst.y + (Math.random() * 80 - 40),
+              randomColor()
+            );
+          }
+        }, burst.delay);
+        celebrationTimers.push(timer);
       }
     },
   };
